@@ -192,5 +192,5 @@ export PATH=$JAVA_HOME/bin:$HOME/omnetpp-5.0/bin:$HOME/omnetpp-5.0/lib:$PATH
 TMOUT=1
 
 TRAPALRM() {
-	zle reset-prompt
+#	zle reset-prompt
 }
