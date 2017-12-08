@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'vim-airline/vim-airline'
@@ -20,8 +21,8 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-"Plugin 'honza/vim-snippets'
+
+Plugin 'airblade/vim-rooter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,15 +40,11 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " airline configuration
-set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " enable buffer line
 let g:airline#extensions#whitespace#enabled = 0 " disable whitespace checks
 let g:airline_theme = 'murmur'
-
-" NERDTree configuration
-let NERDTreeIgnore = ['\.class$']
 
 " misc settings
 set wrap
@@ -69,8 +66,9 @@ set list
 set tabstop=4
 set shiftwidth=4
 set hidden " enable buffer switching without saving
-set display+=lastline
+set display+=lastline " always show beginning of last line
 syntax enable
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
 
 " solor scheme options
 let g:seoul256_background = 236
@@ -87,16 +85,13 @@ set numberwidth=4
 
 set cursorline
 
-command Make execute "!make"
-map <F12> :w<CR>:Make<CR>
-
-command MakeRun execute "!make run"
-map <S-F12> :MakeRun<CR>
-
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
-
 imap jj <Esc>
+
+map <F12> :w<CR>:!make<CR>
+map <F11> :!make run<CR>
+
+nnoremap <S-Tab> :bprev<CR>
+nnoremap <Tab> :bnext<CR>
 
 au BufLeave * let b:winview = winsaveview()
 au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
