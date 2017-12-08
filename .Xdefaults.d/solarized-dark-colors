@@ -18,11 +18,11 @@ URxvt*color9:                #d75f00
 
 !! green dark/light
 URxvt*color2:                #5f8700
-URxvt*color10:               #585858
+URxvt*color10:               #87BF00
 
 !! yellow dark/light
-URxvt*color3:                #af8700
-URxvt*color11:               #626262
+URxvt*color3:                #E0B31D
+URxvt*color11:               #FFC400
 
 !! blue dark/light
 URxvt*color4:                #0087ff
@@ -31,11 +31,11 @@ URxvt.color12:               #00AAFF
 
 !! magenta dark/light
 URxvt*color5:                #af005f
-URxvt*color13:               #5f5faf
+URxvt*color13:               #EF0082
 
 !! cyan dark/light
 URxvt*color6:                #00afaf
-URxvt*color14:               #8a8a8a
+URxvt*color14:               #08DFDF
 
 !! white dark/light
 URxvt*color7:                #e4e4e4

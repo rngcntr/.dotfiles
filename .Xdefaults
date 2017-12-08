@@ -4,8 +4,8 @@ URxvt.scrollBar: false
 #include  ".Xdefaults.d/solarized-dark-colors"
 
 URxvt.secondaryScroll: true
-URxvt*font: xft:Monospace:pixelsize=12, xft:Source\ Code\ Pro\ Medium:pixelsize=12:antialias=true:hinting=true
-URxvt*letterSpace: -2
+URxvt*font: xft:Monospace:pixelsize=14, xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
+URxvt*letterSpace: -1
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: google-chrome-stable
 URxvt.cursorBlink: True
@@ -21,16 +21,3 @@ URxvt.tabbed.font: xft:Bitstream Vera Sans Mono:pixelsize=12
 URxvt*inheritPixmap: true 
 # URxvt*transparent: true
 # URxvt*shading: 70
-URxvt.iso14755: False
-
-! do not scroll with output
-URxvt*scrollTtyOutput: false
-
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
-
-! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
-
-! double buffering to prevent flickering
-URxvt*buffered: true
