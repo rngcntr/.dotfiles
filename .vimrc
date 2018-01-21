@@ -46,6 +46,9 @@ let g:airline#extensions#tabline#enabled = 1 " enable buffer line
 let g:airline#extensions#whitespace#enabled = 0 " disable whitespace checks
 let g:airline_theme = 'murmur'
 
+" rooter configuration
+let g:rooter_patterns = ['.gitignore', '.git', '.git/']
+
 " misc settings
 set wrap
 set linebreak
@@ -93,5 +96,6 @@ map <F11> :!make run<CR>
 nnoremap <S-Tab> :bprev<CR>
 nnoremap <Tab> :bnext<CR>
 
+" restore cursor position on buffer change
 au BufLeave * let b:winview = winsaveview()
 au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
