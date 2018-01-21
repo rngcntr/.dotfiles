@@ -49,6 +49,9 @@ let g:airline_theme = 'murmur'
 " rooter configuration
 let g:rooter_patterns = ['.gitignore', '.git', '.git/']
 
+" list binary files with low priority
+set suffixes+=.pdf,.aux
+
 " misc settings
 set wrap
 set linebreak
