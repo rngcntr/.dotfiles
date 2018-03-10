@@ -47,7 +47,7 @@ let g:airline#extensions#whitespace#enabled = 0 " disable whitespace checks
 let g:airline_theme = 'murmur'
 
 " rooter configuration
-let g:rooter_patterns = ['.gitignore', '.git', '.git/']
+let g:rooter_patterns = ['makefile', '.gitignore', '.git', '.git/']
 
 " list binary files with low priority
 set suffixes+=.pdf,.aux
