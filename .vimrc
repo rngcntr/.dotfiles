@@ -69,7 +69,7 @@ set noswapfile
 set mouse=
 set listchars=tab:▸\ ,eol:¬
 set list
-set tabstop=4
+set tabstop=4 expandtab smarttab
 set shiftwidth=4
 set hidden " enable buffer switching without saving
 set display+=lastline " always show beginning of last line
@@ -102,3 +102,7 @@ nnoremap <Tab> :bnext<CR>
 " restore cursor position on buffer change
 au BufLeave * let b:winview = winsaveview()
 au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+
+" highlight overlength (more than 80) characters
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
