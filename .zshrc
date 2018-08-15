@@ -186,7 +186,7 @@ case ${TERM} in
 esac
 
 # PATH VARIABLES
-export JAVA_HOME=/usr/lib/jvm/java-9-openjdk/
+export JAVA_HOME=/usr/lib/jvm/java-10-openjdk/
 export PATH=$JAVA_HOME/bin:$HOME/omnetpp-5.0/bin:$HOME/omnetpp-5.0/lib:$PATH
 
 TMOUT=1
