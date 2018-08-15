@@ -85,16 +85,17 @@ set background=dark
 hi Normal guibg=NONE ctermbg=NONE
 
 " line numbers
-set relativenumber
+" set relativenumber
 set number
 set numberwidth=4
 
-set cursorline
+" set cursorline
 
 imap jj <Esc>
 
 map <F12> :w<CR>:!make<CR>
 map <F11> :!make run<CR>
+map <F10> :!cd ~/Uni/SACABench/sacabench/build; cmake ..; make check<CR>
 
 nnoremap <S-Tab> :bprev<CR>
 nnoremap <Tab> :bnext<CR>
@@ -105,4 +106,4 @@ au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 
 " highlight overlength (more than 80) characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"match OverLength /\%81v.\+/
