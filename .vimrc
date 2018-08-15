@@ -75,6 +75,7 @@ set hidden " enable buffer switching without saving
 set display+=lastline " always show beginning of last line
 syntax enable
 let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+let g:spacevim_lint_on_save = 0 " disable syntax check on save
 
 " solor scheme options
 let g:seoul256_background = 236
