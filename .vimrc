@@ -108,3 +108,6 @@ au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 " highlight overlength (more than 80) characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
+
+" use system clipboard
+set clipboard=unnamedplus
