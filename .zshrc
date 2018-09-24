@@ -141,7 +141,7 @@ cl() {
 }
 
 loc() {
-	find . | grep -E \\.$1 | xargs wc -l
+	find . | grep -E \\.$1\$ | xargs wc -l
 }
 
 colors() {
