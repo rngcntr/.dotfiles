@@ -188,9 +188,12 @@ esac
 # PATH VARIABLES
 export JAVA_HOME=/usr/lib/jvm/java-10-openjdk/
 export PATH=$JAVA_HOME/bin:$HOME/omnetpp-5.0/bin:$HOME/omnetpp-5.0/lib:$PATH
+export EDITOR=vim
 
 TMOUT=1
 
 TRAPALRM() {
 #	zle reset-prompt
 }
+
+eval $(thefuck --alias)
