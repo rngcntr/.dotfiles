@@ -111,3 +111,6 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
 " use system clipboard
 set clipboard=unnamedplus
+
+" use html settings for php files
+au BufReadPost *.php set filetype=html
