@@ -24,7 +24,7 @@ The following configurations are currently included in this repository:
 
 2. Initialize the submodules (optional)
 
-Some of the contained configurations are forks of existing configuration repositories. In order to use these, you have to clone the required submodules.
+    Some of the contained configurations are forks of existing configuration repositories. In order to use these, you have to clone the required submodules.
 
     ``` console
     $ cd ~/.dotfiles
