@@ -8,3 +8,5 @@
 	unstage = reset HEAD --
 [commit]
 	gpgsign = true
+[pager]
+	branch = false
