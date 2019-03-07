@@ -4,8 +4,7 @@ URxvt.scrollBar: false
 #include  ".Xdefaults.d/solarized-dark-colors"
 
 URxvt.secondaryScroll: true
-URxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=14
-! URxvt*font: xft:Monospace:pixelsize=14, xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
+URxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=14, xft:Monospace:pixelsize=14, xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true, xft:DejaVu\ Sans:pixelsize=14:antialias=true
 URxvt*letterSpace: -1
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: google-chrome-stable
