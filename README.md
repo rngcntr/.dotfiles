@@ -125,7 +125,7 @@ Some of the contained configurations are forks of existing configuration reposit
 
 **Tip:** Using this setup, conky does not automatically start on boot or login. However, conky can be auto started by creating a desktop entry and placing it in `~/.config/autostart`. An example desktop entry would look like this:
 
-    ``` desktop tab="~/.config/autostart/conky.desktop"
+    ``` desktop
     [Desktop Entry]
     Name=Conky
     Comment=Autostart conky
