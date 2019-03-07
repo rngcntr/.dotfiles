@@ -18,19 +18,19 @@ The following configurations are currently included in this repository:
 
 1. Clone the repository.
 
-``` console
-$ git clone https://github.com/rngcntr/.dotfiles.git ~/.dotfiles
-```
+    ``` console
+    $ git clone https://github.com/rngcntr/.dotfiles.git ~/.dotfiles
+    ```
 
 2. Initialize the submodules (optional)
 
 Some of the contained configurations are forks of existing configuration repositories. In order to use these, you have to clone the required submodules.
 
-``` console
-$ cd ~/.dotfiles
-$ git submodule init
-$ git submodule update
-```
+    ``` console
+    $ cd ~/.dotfiles
+    $ git submodule init
+    $ git submodule update
+    ```
 
 ## Detailed Setup
 
@@ -40,21 +40,21 @@ $ git submodule update
 
 2. Install [Vundle](https://github.com/VundleVim/Vundle.vim)
 
-``` console
-$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
+    ``` console
+    $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    ```
 
 3. Create the symlink for `.vimrc`
 
-``` console
-$ ln -s ~/.dotfiles/.vimrc ~/.vimrc
-```
+    ``` console
+    $ ln -s ~/.dotfiles/.vimrc ~/.vimrc
+    ```
 
 4. Install the specified vim plugins
 
-``` console
-$ vim +PluginInstall +qall
-```
+    ``` console
+    $ vim +PluginInstall +qall
+    ```
 
 ### zsh
 
@@ -62,22 +62,22 @@ $ vim +PluginInstall +qall
 
 2. Create the symlinks for `.zshrc` and `.oh-my-zsh`
 
-``` console
-$ ln -s ~/.dotfiles/.zshrc ~/.zshrc
-$ ln -s ~/.dotfiles/.oh-my-zsh ~/.oh-my-zsh
-```
+    ``` console
+    $ ln -s ~/.dotfiles/.zshrc ~/.zshrc
+    $ ln -s ~/.dotfiles/.oh-my-zsh ~/.oh-my-zsh
+    ```
 
 3. Install oh-my-zsh
 
-``` console
-$ ~/.oh-my-zsh/tools/install.sh
-```
+    ``` console
+    $ ~/.oh-my-zsh/tools/install.sh
+    ```
 
 4. Set zsh as your default shell
 
-``` console
-$ chsh -s $(which zsh)
-```
+    ``` console
+    $ chsh -s $(which zsh)
+    ```
 
 5. Log out and back in for the changes to take effect
 
@@ -87,10 +87,10 @@ $ chsh -s $(which zsh)
 
 2. Create the symlinks for `.Xdefaults` and `.Xdefaults.d`
 
-``` console
-$ ln -s ~/.dotfiles/.Xdefaults ~/.Xdefaults
-$ ln -s ~/.dotfiles/.Xdefaults.d ~/.Xdefaults.d
-```
+    ``` console
+    $ ln -s ~/.dotfiles/.Xdefaults ~/.Xdefaults
+    $ ln -s ~/.dotfiles/.Xdefaults.d ~/.Xdefaults.d
+    ```
 
 ### git
 
@@ -98,10 +98,10 @@ $ ln -s ~/.dotfiles/.Xdefaults.d ~/.Xdefaults.d
 
 2. Create the symlinks for `.gitconfig` and `.gitconfig.local`
 
-``` console
-$ ln -s ~/.dotfiles/.gitconfig ~/.gitoconfig
-$ ln -s ~/.dotfiles/.gitconfig.local ~/.gitconfig.local
-```
+    ``` console
+    $ ln -s ~/.dotfiles/.gitconfig ~/.gitoconfig
+    $ ln -s ~/.dotfiles/.gitconfig.local ~/.gitconfig.local
+    ```
 
 3. Enter all of your personal settings into the .gitconfig.local file. **Make sure you never commit this file for privacy reasons.**
 
@@ -113,12 +113,22 @@ $ ln -s ~/.dotfiles/.gitconfig.local ~/.gitconfig.local
 
 2. Create the symlink for `conky`
 
-``` console
-$ ln -s ~/.dotfiles/.config/conky ~/.config/conky
-```
+    ``` console
+    $ ln -s ~/.dotfiles/.config/conky ~/.config/conky
+    ```
 
 3. Start conky
 
-``` console
-$ .config/conky/conky-start.sh
-```
+    ``` console
+    $ .config/conky/conky-start.sh
+    ```
+
+**Tip:** Using this setup, conky does not automatically start on boot or login. However, conky can be auto started by creating a desktop entry and placing it in `~/.config/autostart`. An example desktop entry would look like this:
+
+    ``` desktop tab="~/.config/autostart/conky.desktop"
+    [Desktop Entry]
+    Name=Conky
+    Comment=Autostart conky
+    Type=Application
+    Exec=sh -c "sleep 10; ~/.config/conky/conky-start.sh"
+    ```
