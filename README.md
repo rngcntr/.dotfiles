@@ -8,11 +8,41 @@ Instead of having having your home directory clustered with various dotfiles, we
 
 The following configurations are currently included in this repository:
 
-* [vim](#vim) (../blob/master/.vimrc)
-* [zsh](#zsh) (../blob/master/.zshrc, ../blob/master/.oh-my-zsh)
-* [X](#x) (../blob/master/.Xdefaults, ../blob/master/.Xdefaults.d)
-* [git](#git) (../blob/master/.gitconfig, ../blob/master/.gitconfig.local)
-* [conky](#conky) (../blob/master/.config/conky)
+<table style="white-space: nowrap;">
+  <thead>
+    <tr>
+      <th colspan="1">Program</td>
+      <th colspan="2">Files</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href=#vim>vim</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.vimrc">.vimrc</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href=#zsh>zsh</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.zshrc">.zshrc</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.oh-my-zsh">.oh-my-zsh</a></td>
+    </tr>
+    <tr>
+      <td><a href=#X>X</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.Xdefaults">.Xdefaults</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.Xdefaults.d">.Xdefaults.d</a></td>
+    </tr>
+    <tr>
+      <td><a href=#git>git</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.gitconfig">.gitconfig</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.gitconfig.local">.gitconfig.local</a></td>
+    </tr>
+    <tr>
+      <td><a href=#conky>conky</a></td>
+      <td><a href="https://github.com/rngcntr/.dotfiles/blob/master/.config/conky">.config/conky</a></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Quick Start
 
