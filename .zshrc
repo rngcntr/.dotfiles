@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -58,7 +65,7 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitignore)
+plugins=(git gitignore dotnet)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +109,7 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 alias sudo='sudo -E'
+alias findyubi='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 #
 # # ex - archive extractor
@@ -144,6 +152,10 @@ loc() {
 	find . | grep -E \\.$1\$ | xargs wc -l
 }
 
+fif() {
+    find . -type f -print0 | xargs -0 grep $1
+}
+
 colors() {
 	local fgc bgc vals seq0
 
@@ -175,6 +187,15 @@ up() {
 	cd $(eval printf '../'%.0s {1..$1})
 }
 
+mkcd() {
+    dir="$*";
+    mkdir -p "$dir" && cd "$dir";
+}
+
+contain() {
+    grep -rnw . -e $1
+}
+
 # Change the window title of X terminals
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
@@ -186,9 +207,15 @@ case ${TERM} in
 esac
 
 # PATH VARIABLES
-export JAVA_HOME=/usr/lib/jvm/java-10-openjdk/
-export PATH=$JAVA_HOME/bin:$HOME/omnetpp-5.0/bin:$HOME/omnetpp-5.0/lib:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
+export DOTNET_HOME=/home/fgrieskamp/.dotnet/tools
+export CARGO_BIN=/home/fgrieskamp/.cargo/bin
+export HOME_BIN=/home/fgrieskamp/.bin
+export YARN_BIN=/home/fgrieskamp/.yarn/bin
+export PATH=$JAVA_HOME/bin:$DOTNET_HOME:$CARGO_BIN:$HOME_BIN:$YARN_BIN:$PATH
 export EDITOR=vim
+
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 TMOUT=1
 
@@ -197,3 +224,42 @@ TRAPALRM() {
 }
 
 eval $(thefuck --alias)
+
+if hash dotnet 2>/dev/null; then
+    export MSBuildSDKsPath="$(dotnet --info | grep "Base Path:" | awk '{ print $3 }')Sdks" || echo "failed to find dotnet"
+fi
+
+export DOTNET_ROOT=/usr/bin/dotnet
+
+export WORKON_HOME=~/.virtualenvs
+
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
+
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
+bindkey '^ ' autosuggest-accept
+
+source /usr/share/fzf/key-bindings.zsh
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/plugins/z/z.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# $1: tenant graph name
+# #2: elastic password
+index_size() {
+    curl --silent -u elastic:$2 -X GET "https://elasticsearch-janusgraph.telemetry-grid.pt-ata-gaia.k8s.gdata.de/_cat/indices?bytes=b" | grep "$1" | tr -s " " | cut -d " " -f9 | paste -sd+ | bc
+}
+
+fotnet() {
+    if [[ $@ == "doormat" ]]; then
+        command dotnet format
+    else
+        command dotnet
+    fi
+}

@@ -2,11 +2,54 @@
 	path = .gitconfig.local
 [core]
 	editor = vim
+	excludesfile = /home/fgrieskamp/.gitignore
+	pager = less
 [alias]
+    main = !"(git checkout main || git checkout master)"
+    forcepull = !"git fetch && git reset --hard `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"
 	lg = log --abbrev-commit --decorate --format=format:'%C(auto,bold yellow)%h %C(auto,bold magenta)%G? %C(auto,bold blue)%>(14,trunc)%ar %C(auto,bold green)%<(11,trunc)%aN %C(auto,reset)%<(50,trunc)%s %C(auto,red)%D'
 	tree = log --graph --abbrev-commit --decorate --format=format:'─┬─▶ %C(auto,bold yellow)%h %C(auto,magenta)%G? %C(auto,bold blue)%>(14,trunc)%ar %C(auto,bold green)%<(25,trunc)%aN% %C(auto,bold red)%D%C(reset)%n'' %C(white)└──▶ %<|(60,trunc)%s%C(reset)%n''' --all
 	unstage = reset HEAD --
+    dirty = !git add . && git commit --amend --no-edit && git push -f
+    wip = !"git add . && git add .\\* && git commit -m 'wip' && git push"
+    feature = !"bash -c ' \
+            git stash && \
+            git checkout \"${2:-master}\" && \
+            git pull && \
+            git checkout -b \"$0\" && \
+            git stash pop; \
+            git add . && \
+            git commit -m \"$1\" && \
+            git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD) 2> >(grep -Eo \"(http|https)://[a-zA-Z0-9./?=_%:\\\\&-]*\" | xargs xdg-open &> /dev/null) && \
+            git checkout \"${2:-master}\" && \
+            git branch -d \"$0\"'"
+    pr = !git feature `(echo $1 | sed 's/ /-/g' | tr '[:upper:]' '[:lower:]')` \""$1"\" \"${2:-master}\"
+    #commit = commit -s
 [commit]
 	gpgsign = true
 [pager]
 	branch = false
+[user]
+	signingkey = E07F41AB92C95ED4
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[push]
+	autoSetupRemote = true
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
